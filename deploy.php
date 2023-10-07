@@ -20,8 +20,8 @@ $repositoryPath = '/var/www/html/Java-Course';
 $branch = 'master';
 
 //$result = exec("cd {$repositoryPath} &&  git pull origin {$branch} 2>&1", $r2);
-$result = exec("pwd && ls -a && git --version && git log && git branch && git pull origin {$branch} 2>&1", $r2);
-
+$result = exec("pwd && ls -a && git --version &&  git pull origin {$branch} 2>&1", $r2);
+echo exec('git log'); 
 echo "<pre>";
 
 foreach ($r2 as $line) {
