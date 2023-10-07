@@ -1,6 +1,6 @@
 <?php
 // Get the request data
-    $tmp = shell_exec("git pull");
+    $tmp = shell_exec('git pull');
 ?>
 
 <!DOCTYPE html>
