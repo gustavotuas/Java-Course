@@ -19,9 +19,9 @@ $repositoryPath = '/var/www/html/Java-Course';
 // Set the branch you want to pull from
 $branch = 'master';
 
-//$result = exec("cd {$repositoryPath} &&  git pull origin {$branch} 2>&1", $r2);
+$result = exec("cd {$repositoryPath} &&  git pull origin {$branch} 2>&1", $r2);
 //$result = exec("pwd && ls -a && git --version &&  git pull origin {$branch} 2>&1", $r2);
-$result = exec('git log', $r2); 
+//$result = exec('git log', $r2); 
 echo "<pre>";
 
 foreach ($r2 as $line) {
