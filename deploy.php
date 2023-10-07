@@ -4,7 +4,7 @@
 <title>Deploy</title>
 </head>
 <body>
-Gustavo Tua
+Gustavo Tua Silva
 <?php
 echo "<b>GitHub Deploy</b>";
 //$output = shell_exec(" git branch");
@@ -12,9 +12,11 @@ echo "<b>GitHub Deploy</b>";
 $output2 = shell_exec('git --version');
 $output = shell_exec('git branch');
 $output3 = shell_exec('git init');
+$output4 = shell_exec('git pull');
 echo "<pre>$output2</pre>"; 
 echo "<pre>$output</pre>"; 
 echo "<pre>$output3</pre>"; 
+echo "<pre>$output4</pre>"; 
 ?>
 
 
