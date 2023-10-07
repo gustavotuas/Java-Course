@@ -1,24 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Deploy</title>
-</head>
-<body>
-Gustavo Enrique Tua Silva 
 <?php
-echo "<b>GitHub Deploy</b>";
-//$output = shell_exec(" git branch");
-//$output = shell_exec('/usr/bin/git -C /var/www/html/Java-Course pull 2>&1');
-$output2 = shell_exec('git --version');
-$output = shell_exec('git branch');
-$output3 = shell_exec('git init');
-$output4 = shell_exec('git pull');
-echo "<pre>$output2</pre>"; 
-echo "<pre>$output</pre>"; 
-echo "<pre>$output3</pre>"; 
-echo "<pre>$output4</pre>"; 
-?>
 
+echo "GIT PULL FROM DEVELOPMENT BRANCH";
+echo "<br>";
+// Checks start
+if(function_exists('exec')) {
+    echo "exec is enabled";
+}
 
-</body>
-</html>
+echo "<br>";
+echo exec('whoami');
+echo "<br>";
+echo exec('which git');
+echo "<br>";
+// Checks end
+
+$repositoryPath = '/var/www/html/Java-Course';
+
+// Set the branch you want to pull from
+$branch = 'main';
+
+$result = exec("cd {$repositoryPath} && sudo git pull origin {$branch} 2>&1", $r2);
+
+echo "<pre>";
+
+foreach ($r2 as $line) {
+        echo $line . "\n";
+}
+
+unset($r2);
+
+echo "\n\n";
+echo "------------------------------------------------------";
+echo "\ngit status\n";
+echo "------------------------------------------------------";
+echo "\n\n";
+
+$result = exec("git status 2>&1", $r2);
+
+echo "<pre>";
+
+foreach ($r2 as $line) {
+        echo $line . "\n";
+}
