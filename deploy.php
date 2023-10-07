@@ -7,7 +7,8 @@
 GT
 <?php
 echo "2023";
-$output = shell_exec("ls -l");
+//$output = shell_exec(" git branch");
+$output = shell_exec('/usr/bin/git -C /var/www/html/Java-Course pull 2>&1');
 echo "<pre>$output</pre>"; 
 ?>
 <?php
