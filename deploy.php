@@ -19,7 +19,7 @@ $repositoryPath = '/var/www/html/Java-Course';
 // Set the branch you want to pull from
 $branch = 'master';
 
-$result = exec("cd {$repositoryPath} && sudo git pull origin {$branch} 2>&1", $r2);
+$result = exec("cd {$repositoryPath} &&  git pull origin {$branch} 2>&1", $r2);
 
 echo "<pre>";
 
