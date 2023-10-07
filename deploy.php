@@ -1,7 +1,3 @@
-<?php
-// Get the request data
-    $tmp = shell_exec('git pull');
-?>
 
 <!DOCTYPE html>
 <html>
@@ -9,6 +5,11 @@
 <title>Deploy</title>
 </head>
 <body>
-<?php echo  $tmp; ?>
+    <?php
+// Get the request data
+    $tmp = shell_exec('git pull');
+echo  $tmp
+?>
+
 </body>
 </html>
