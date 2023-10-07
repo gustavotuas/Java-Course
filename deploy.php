@@ -14,10 +14,10 @@ echo "<pre>$output</pre>";
 echo "<br>------------------";
 // Set the path to your Git repository
 // Execute the git pull command
-$output = shell_exec('git pull');
+$output2 = shell_exec('git pull');
 //$output2 = exec('sudo cd /var/www/html/Java-Course && git pull');
 // Display the output (optional)
-echo "<pre>1 $output</pre>";
+echo "<pre>1 $output2</pre>";
 
 ?>
 
