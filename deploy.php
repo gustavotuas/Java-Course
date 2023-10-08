@@ -28,4 +28,13 @@ $output = exec($sshAgentCommand);
 
 // Display the output (optional)
 echo "<pre>$output</pre>";
+
+$result = exec("pwd && ls -a && git --version &&  git pull origin master 2>&1", $r2);
+
+echo "<pre>";
+
+foreach ($r2 as $line) {
+        echo $line . "\n";
+}
+
 ?>
