@@ -18,7 +18,7 @@ echo "<br>";
 // Define the path to your Git repository
 $repositoryPath = '/var/www/html/Java-Course';
 
-if ( $_POST['payload'] ) {
+if ($_SERVER['HTTP_X_GITHUB_EVENT'] == 'push') {
   shell_exec( 'cd /var/www/html/Java-Course && git reset --hard HEAD && git pull' );
 }
 
