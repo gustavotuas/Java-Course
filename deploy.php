@@ -1,47 +1,16 @@
-
 <?php
-
-echo "GIT PULL FROM DEVELOPMENT BRANCH";
-echo "<br>";
-// Checks start
-if(function_exists('exec')) {
-    echo "exec is enabled";
-}
-
-echo "<br>";
-echo exec('whoami');
-echo "<br>";
-echo exec('which git');
-echo "<br>";
-// Checks end
-
+// Define the path to your Git repository
 $repositoryPath = '/var/www/html/Java-Course';
 
-// Set the branch you want to pull from
-$branch = 'master';
+// Define the command to perform the Git pull
+$gitPullCommand = "git -C $repositoryPath pull";
 
-//$result = exec("cd {$repositoryPath} &&  git pull origin {$branch} 2>&1", $r2);
-$result = exec("pwd && ls -a && git --version &&  git pull origin master 2>&1", $r2);
-//$result = exec("git log", $r2);
-//$result = exec('git clone https://github.com/gustavotuas/Java-Course.git', $r2); 
-echo "<pre>";
+// Execute the Git pull command using SSH agent
+$sshAgentCommand = "eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa && $gitPullCommand 2>&1";
 
-foreach ($r2 as $line) {
-        echo $line . "\n";
-}
+// Execute the SSH agent command
+$output = shell_exec($sshAgentCommand);
 
-unset($r2);
-
-echo "\n\n";
-echo "------------------------------------------------------";
-echo "\ngit status\n";
-echo "------------------------------------------------------";
-echo "\n\n";
-
-$result = exec("git status 2>&1", $r2);
-
-echo "<pre>";
-
-foreach ($r2 as $line) {
-        echo $line . "\n";
-}
+// Display the output (optional)
+echo "<pre>$output</pre>";
+?>
