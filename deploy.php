@@ -9,7 +9,7 @@ $gitPullCommand = "git -C $repositoryPath pull";
 $sshAgentCommand = "eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa && $gitPullCommand 2>&1";
 
 // Execute the SSH agent command
-$output = shell_exec($sshAgentCommand);
+$output = exec($sshAgentCommand);
 
 // Display the output (optional)
 echo "<pre>$output</pre>";
