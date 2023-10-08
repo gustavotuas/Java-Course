@@ -14,27 +14,32 @@ echo exec('which git');
 echo "<br>";
 // Checks end
 
+
 // Define the path to your Git repository
 $repositoryPath = '/var/www/html/Java-Course';
 
+if ( $_POST['payload'] ) {
+  shell_exec( 'cd /var/www/html/Java-Course && git reset --hard HEAD && git pull' );
+}
+
 // Define the command to perform the Git pull
-$gitPullCommand = "pwd && ls -a && git --version &&  git pull origin master 2>&1";
+//$gitPullCommand = "pwd && ls -a && git --version &&  git pull origin master 2>&1";
 
 // Execute the Git pull command using SSH agent
-$sshAgentCommand = "eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa && $gitPullCommand ";
+//$sshAgentCommand = "eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa && $gitPullCommand ";
 
 // Execute the SSH agent command
-$output = exec($sshAgentCommand);
+//$output = exec($sshAgentCommand);
 
 // Display the output (optional)
-echo "<pre>$output</pre>";
+//echo "<pre>$output</pre>";
 
-$result = exec("pwd && ls -a && git --version &&  git pull origin master 2>&1", $r2);
+//$result = exec("pwd && ls -a && git --version &&  git pull origin master 2>&1", $r2);
 
-echo "<pre>";
-
+//echo "<pre>";
+/*
 foreach ($r2 as $line) {
         echo $line . "\n";
 }
-
+*/
 ?>
