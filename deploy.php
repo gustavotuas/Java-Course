@@ -18,9 +18,9 @@ echo "<br>";
 // Define the path to your Git repository
 $repositoryPath = '/var/www/html/Java-Course';
 
-if ($_SERVER['HTTP_X_GITHUB_EVENT'] == 'push') {
-  shell_exec( 'cd /var/www/html/Java-Course && git reset --hard HEAD && git pull' );
-}
+
+  exec( 'git reset --hard HEAD && git pull' );
+
 
 // Define the command to perform the Git pull
 //$gitPullCommand = "pwd && ls -a && git --version &&  git pull origin master 2>&1";
