@@ -18,7 +18,7 @@ $payloadHash = hash_hmac($algo, $payload, $secret);
 // Verify the signature
 if ($hash === $payloadHash) {
     // Pull the latest changes from the Git repository
-    exec("git pull origin {$branch}");
+    exec("git pull origin master");
     echo "Git pull successful!!";
 } else {
     echo "Invalid signature.";
