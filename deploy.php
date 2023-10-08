@@ -1,27 +1,47 @@
+
 <?php
 
-//$repositoryPath = '/var/www/html/Java-Course';
-//$branch = 'master';
-
-// Get the request data
-$data = json_decode(file_get_contents("php://input"));
-
-// Verify that the payload is from GitHub (optional, but recommended)
-$secret = "GitHubDigitalOceanSecret"; // Replace with your secret
-$hubSignature = $_SERVER['HTTP_X-Hub-Signature'] ?? '';
-list($algo, $hash) = explode('=', $hubSignature, 2);
-
-// Calculate the hash
-$payload = file_get_contents("php://input");
-$payloadHash = hash_hmac($algo, $payload, $secret);
-
-// Verify the signature
-if ($hash === $payloadHash) {
-    // Pull the latest changes from the Git repository
-    exec("git pull");
-    echo "Git pull successful!!";
-} else {
-    echo "Invalid signature.";
+echo "GIT PULL FROM DEVELOPMENT BRANCH";
+echo "<br>";
+// Checks start
+if(function_exists('exec')) {
+    echo "exec is enabled";
 }
-?>
 
+echo "<br>";
+echo exec('whoami');
+echo "<br>";
+echo exec('which git');
+echo "<br>";
+// Checks end
+
+$repositoryPath = '/var/www/html/Java-Course';
+
+// Set the branch you want to pull from
+$branch = 'master';
+
+//$result = exec("cd {$repositoryPath} &&  git pull origin {$branch} 2>&1", $r2);
+$result = exec("pwd && ls -a && git --version &&  git pull origin master 2>&1", $r2);
+//$result = exec("git log", $r2);
+//$result = exec('git clone https://github.com/gustavotuas/Java-Course.git', $r2); 
+echo "<pre>";
+
+foreach ($r2 as $line) {
+        echo $line . "\n";
+}
+
+unset($r2);
+
+echo "\n\n";
+echo "------------------------------------------------------";
+echo "\ngit status\n";
+echo "------------------------------------------------------";
+echo "\n\n";
+
+$result = exec("git status 2>&1", $r2);
+
+echo "<pre>";
+
+foreach ($r2 as $line) {
+        echo $line . "\n";
+}
