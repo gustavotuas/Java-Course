@@ -9,7 +9,9 @@ list($algo, $hash) = explode('=', $hubSignature, 2);
 
 // Calculate the hash
 $payload = file_get_contents("php://input");
+echo  $payload;
 $payloadHash = hash_hmac($algo, $payload, $secret);
+echo  $payloadHash;
 
 // Verify the signature
 if ($hash === $payloadHash) {
