@@ -1,4 +1,8 @@
 <?php
+
+$repositoryPath = '/var/www/html/Java-Course';
+$branch = 'master';
+
 // Get the request data
 $data = json_decode(file_get_contents("php://input"));
 
@@ -9,14 +13,12 @@ list($algo, $hash) = explode('=', $hubSignature, 2);
 
 // Calculate the hash
 $payload = file_get_contents("php://input");
-echo  $payload;
 $payloadHash = hash_hmac($algo, $payload, $secret);
-echo  $payloadHash;
 
 // Verify the signature
 if ($hash === $payloadHash) {
     // Pull the latest changes from the Git repository
-    exec("cd /var/www/html/Java-Course && git pull");
+    exec("cd {$repositoryPath} && git pull origin {$branch}");
     echo "Git pull successful!!";
 } else {
     echo "Invalid signature.";
