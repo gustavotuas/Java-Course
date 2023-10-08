@@ -1,6 +1,6 @@
 <?php
 
-echo "GIT PULL FROM DEVELOPMENT BRANCH";
+echo "GIT2 PULL FROM DEVELOPMENT BRANCH";
 echo "<br>";
 // Checks start
 if(function_exists('exec')) {
